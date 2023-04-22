@@ -1,24 +1,32 @@
-class node:
-    def __init__(self, values):
-        self.values = values
+class Node:
+    def __init__(self, value):
+        self.value = value
         self.next = None
 
+
 class Queue:
-    def __init__(self, values):
-        newnode = node(values)
-        self.first = newnode
-        self.last = newnode
+    def __init__(self, value):
+        new_node = Node(value)
+        self.first = new_node
+        self.last = new_node
         self.length = 1
 
+    def print_queue(self):
+        temp = self.first
+        while temp is not None:
+            print(temp.value)
+            temp = temp.next
+
     def enqueue(self, value):
-        newnode = node(value)
+        newnode = Node(value)
         if self.first is None:
             self.first = newnode
             self.last = newnode
         else:
             self.last.next = newnode
             self.last = newnode
-        self.length = +1
+        self.length += 1
+        return True
 
     def dequeue(self):
         if self.length == 0:
@@ -31,20 +39,12 @@ class Queue:
             self.first = self.first.next
             tempo.next = None
         self.length -= 1
-        return tempo.values
+        return tempo.value
 
 
-    def printlist(self):
-        tempo = self.first
-        while tempo is not None:
-            print(tempo.values)
-            tempo = tempo.next
+queueprint = Queue(10)
+queueprint.enqueue(20)
 
-
-queueprint = Queue(89)
-queueprint.enqueue(10)
 print(queueprint.dequeue())
 print(queueprint.dequeue())
 print(queueprint.dequeue())
-
-
