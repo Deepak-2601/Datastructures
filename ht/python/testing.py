@@ -1,0 +1,5 @@
+a = input("Enter the name: ")
+b = input("Enter the name: ")
+c = input("Enter the name: ")
+d = input("Enter the name: ")
+print(a, b, c, d, sep=" ")
